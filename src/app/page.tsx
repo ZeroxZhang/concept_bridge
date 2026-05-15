@@ -102,34 +102,39 @@ export default function Home() {
         <Graph graphData={graphData} onNodeClick={handleNodeClick} />
       </div>
 
-      {/* UI Overlay */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center space-x-4 bg-black/40 backdrop-blur-md p-4 rounded-2xl border border-white/10 shadow-[0_0_30px_rgba(255,255,255,0.05)] z-20">
-        <input
-          type="text"
-          value={source}
-          onChange={(e) => setSource(e.target.value)}
-          placeholder="概念 A (e.g. 宇宙)"
-          className="bg-transparent border-b border-white/30 text-white px-2 py-1 outline-none focus:border-white transition-colors w-40 text-center"
-        />
-        <span className="text-white/50">→</span>
-        <input
-          type="text"
-          value={target}
-          onChange={(e) => setTarget(e.target.value)}
-          placeholder="概念 B (e.g. 意识)"
-          className="bg-transparent border-b border-white/30 text-white px-2 py-1 outline-none focus:border-white transition-colors w-40 text-center"
-        />
-        <button
-          onClick={handleBridge}
-          disabled={loading || !source || !target}
-          className="ml-4 bg-white text-black px-6 py-2 rounded-full font-medium hover:bg-gray-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center"
-        >
-          {loading ? (
-            <Loader2 className="w-5 h-5 animate-spin" />
-          ) : (
-            "连接"
-          )}
-        </button>
+      {/* Bottom Bar: Input + Copyright */}
+      <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center gap-3 pb-4 z-20">
+        <div className="flex items-center space-x-4 bg-black/40 backdrop-blur-md p-4 rounded-2xl border border-white/10 shadow-[0_0_30px_rgba(255,255,255,0.05)]">
+          <input
+            type="text"
+            value={source}
+            onChange={(e) => setSource(e.target.value)}
+            placeholder="概念 A (e.g. 宇宙)"
+            className="bg-transparent border-b border-white/30 text-white px-2 py-1 outline-none focus:border-white transition-colors w-40 text-center"
+          />
+          <span className="text-white/50">→</span>
+          <input
+            type="text"
+            value={target}
+            onChange={(e) => setTarget(e.target.value)}
+            placeholder="概念 B (e.g. 意识)"
+            className="bg-transparent border-b border-white/30 text-white px-2 py-1 outline-none focus:border-white transition-colors w-40 text-center"
+          />
+          <button
+            onClick={handleBridge}
+            disabled={loading || !source || !target}
+            className="ml-4 bg-white text-black px-6 py-2 rounded-full font-medium hover:bg-gray-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center"
+          >
+            {loading ? (
+              <Loader2 className="w-5 h-5 animate-spin" />
+            ) : (
+              "连接"
+            )}
+          </button>
+        </div>
+        <div className="text-white/20 text-xs tracking-wider pointer-events-none">
+          All Rights Reserved © 2026 zeroxzhang.cc
+        </div>
       </div>
       
       {/* Instructions */}
@@ -140,10 +145,6 @@ export default function Home() {
         </div>
       )}
 
-      {/* Copyright */}
-      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-white/20 text-xs tracking-wider z-20 pointer-events-none">
-        © 2026 zeroxzhang.cc
-      </div>
     </main>
   );
 }
