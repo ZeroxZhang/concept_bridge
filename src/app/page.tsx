@@ -139,6 +139,11 @@ export default function Home() {
           <p className="text-sm tracking-widest">输入两个概念，探索它们在隐空间中的逻辑桥梁</p>
         </div>
       )}
+
+      {/* Copyright */}
+      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-white/20 text-xs tracking-wider z-20 pointer-events-none">
+        © 2026 zeroxzhang.cc
+      </div>
     </main>
   );
 }
